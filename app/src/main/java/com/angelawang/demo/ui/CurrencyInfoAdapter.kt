@@ -9,6 +9,11 @@ import com.angelawang.demo.databinding.ItemCurrencyInfoBinding
 
 class CurrencyInfoAdapter: RecyclerView.Adapter<CurrencyInfoAdapter.CurrencyInfoViewHolder>() {
 
+    interface OnItemClickListener {
+        fun onItemClick(info: CurrencyInfo)
+    }
+
+    var itemClickListener: OnItemClickListener? = null
     var infoList = listOf<CurrencyInfo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrencyInfoAdapter.CurrencyInfoViewHolder {
@@ -24,6 +29,10 @@ class CurrencyInfoAdapter: RecyclerView.Adapter<CurrencyInfoAdapter.CurrencyInfo
         return infoList.size
     }
 
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
+    }
+
     fun setList(list: List<CurrencyInfo>) {
         infoList = list
         notifyDataSetChanged()
@@ -35,6 +44,9 @@ class CurrencyInfoAdapter: RecyclerView.Adapter<CurrencyInfoAdapter.CurrencyInfo
             binding.iconTextView.text = info.name[0].uppercase()
             binding.nameTextView.text = info.name
             binding.symbolTextView.text = info.symbol
+            binding.root.setOnClickListener {
+                itemClickListener?.onItemClick(info)
+            }
         }
     }
 

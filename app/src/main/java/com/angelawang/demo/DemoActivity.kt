@@ -2,6 +2,7 @@ package com.angelawang.demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.angelawang.demo.data.CurrencyInfoRepository
 import com.angelawang.demo.databinding.ActivityDemoBinding
@@ -14,6 +15,7 @@ class DemoActivity : AppCompatActivity() {
         ViewModelProvider(this).get(CurrencyInfoViewModel::class.java)
     }
     private var currentSortType = CurrencyInfoRepository.SortType.NONE
+    private var toastMessage: Toast? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,19 @@ class DemoActivity : AppCompatActivity() {
                 else -> getString(R.string.activity_demo_sort)
             }
         })
+
+        // Get notification when info item is clicked
+        currencyInfoViewModel.getClickedInfo().observe(this, { info ->
+            // Cancel previous message first in order to show current message immediately
+            toastMessage?.cancel()
+            toastMessage = Toast.makeText(this, "${info.symbol} is Clicked", Toast.LENGTH_SHORT)
+            toastMessage?.show()
+        })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        toastMessage?.cancel()
     }
 
     override fun onDestroy() {

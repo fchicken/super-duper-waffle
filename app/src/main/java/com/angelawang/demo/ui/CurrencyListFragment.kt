@@ -34,6 +34,11 @@ class CurrencyListFragment: Fragment() {
 
         binding?.apply {
             adapter = CurrencyInfoAdapter()
+            adapter?.setOnItemClickListener(object: CurrencyInfoAdapter.OnItemClickListener {
+                override fun onItemClick(info: CurrencyInfo) {
+                    currencyInfoViewModel.setClickedInfo(info)
+                }
+            })
             recyclerView.adapter = adapter
         }
 
