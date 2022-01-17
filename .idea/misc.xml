@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-anydpi/ic_more.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable/rounded_rect_gray.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable/rounded_rect_theme.xml" value="0.28" />
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/fragment_currency_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_currency_info.xml" value="0.375" />
       </map>
     </option>
   </component>
