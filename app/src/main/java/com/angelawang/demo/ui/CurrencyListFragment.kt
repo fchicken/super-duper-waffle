@@ -32,9 +32,12 @@ class CurrencyListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = CurrencyInfoAdapter()
-        binding?.recyclerView?.adapter = adapter
+        binding?.apply {
+            adapter = CurrencyInfoAdapter()
+            recyclerView.adapter = adapter
+        }
 
+        // Update list in adapter when it changed
         currencyInfoViewModel.getList().observe(viewLifecycleOwner, {list -> adapter?.setList(list)})
     }
 }

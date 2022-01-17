@@ -16,4 +16,10 @@ interface CurrencyInfoDao {
     @Query("SELECT * FROM `currency_info_table`")
     fun getAll(): Flow<List<CurrencyInfo>>
 
+    @Query("SELECT * FROM `currency_info_table` ORDER BY `name` ASC")
+    fun getAllAscending(): Flow<List<CurrencyInfo>>
+
+    @Query("SELECT * FROM `currency_info_table` ORDER BY `name` DESC")
+    fun getAllDescending(): Flow<List<CurrencyInfo>>
+
 }

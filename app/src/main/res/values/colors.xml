@@ -13,6 +13,8 @@
     <color name="crypto_blue_dark">#1C3060</color>
     <color name="crypto_blue_dark_variant">#0E1C39</color>
     <color name="crypto_gray">#4D607E</color>
+
+    <color name="light_gray">#AAAAAA</color>
     <color name="divider">#DDDDDD</color>
 
 </resources>

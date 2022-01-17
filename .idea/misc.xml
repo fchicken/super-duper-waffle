@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-anydpi/ic_more.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable/button_background.xml" value="0.15104166666666666" />
         <entry key="app/src/main/res/drawable/rounded_rect_blue.xml" value="0.15104166666666666" />
+        <entry key="app/src/main/res/drawable/rounded_rect_dark_blue.xml" value="0.15104166666666666" />
         <entry key="app/src/main/res/drawable/rounded_rect_gray.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable/rounded_rect_light_gray.xml" value="0.15104166666666666" />
         <entry key="app/src/main/res/drawable/rounded_rect_theme.xml" value="0.28" />
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/fragment_currency_list.xml" value="0.25" />

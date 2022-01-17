@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Demo</string>
+
+    <string name="activity_demo_load">Load</string>
+    <string name="activity_demo_sort">Sort</string>
+    <string name="activity_demo_sort_default">Sort(Default)</string>
+    <string name="activity_demo_sort_ascending">Sort(ASC)</string>
+    <string name="activity_demo_sort_descending">Sort(DESC)</string>
+
 </resources>
