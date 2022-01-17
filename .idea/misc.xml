@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-anydpi/ic_more.xml" value="0.28" />
+        <entry key="app/src/main/res/drawable/rounded_rect_blue.xml" value="0.15104166666666666" />
         <entry key="app/src/main/res/drawable/rounded_rect_gray.xml" value="0.28" />
         <entry key="app/src/main/res/drawable/rounded_rect_theme.xml" value="0.28" />
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.28229166666666666" />
@@ -12,7 +13,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
