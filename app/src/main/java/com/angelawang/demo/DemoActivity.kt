@@ -36,9 +36,10 @@ class DemoActivity : AppCompatActivity() {
         currencyInfoViewModel.getSortType().observe(this, { sortType ->
             currentSortType = sortType
             activityBinding.sortButton.text = when(currentSortType) {
+                CurrencyInfoRepository.SortType.DEFAULT -> getString(R.string.activity_demo_sort_default)
                 CurrencyInfoRepository.SortType.ASCENDING -> getString(R.string.activity_demo_sort_ascending)
                 CurrencyInfoRepository.SortType.DESCENDING -> getString(R.string.activity_demo_sort_descending)
-                else -> getString(R.string.activity_demo_sort_default)
+                else -> getString(R.string.activity_demo_sort)
             }
         })
     }
