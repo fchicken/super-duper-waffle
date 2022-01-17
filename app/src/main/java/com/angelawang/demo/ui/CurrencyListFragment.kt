@@ -40,4 +40,9 @@ class CurrencyListFragment: Fragment() {
         // Update list in adapter when it changed
         currencyInfoViewModel.getList().observe(viewLifecycleOwner, {list -> adapter?.setList(list)})
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
 }
