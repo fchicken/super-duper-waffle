@@ -19,6 +19,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation_demo" />
 
+    <ProgressBar
+        android:id="@+id/loading_progress_bar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone" />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,7 +46,6 @@
             android:padding="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="10dp"
-            android:enabled="true"
             android:text="@string/activity_demo_load"
             android:textColor="@color/white"
             android:background="@drawable/button_background"/>
@@ -49,7 +58,6 @@
             android:padding="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
-            android:enabled="false"
             android:text="@string/activity_demo_sort"
             android:textColor="@color/white"
             android:background="@drawable/button_background"/>

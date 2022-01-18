@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.angelawang.demo.data.model.CurrencyInfo
 import com.angelawang.demo.databinding.FragmentCurrencyListBinding
@@ -13,9 +14,7 @@ class CurrencyListFragment: Fragment() {
 
     private var binding: FragmentCurrencyListBinding? = null
     private var adapter: CurrencyInfoAdapter? = null
-    private val currencyInfoViewModel: CurrencyInfoViewModel by lazy {
-        ViewModelProvider(requireActivity()).get(CurrencyInfoViewModel::class.java)
-    }
+    private val currencyInfoViewModel: CurrencyInfoViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

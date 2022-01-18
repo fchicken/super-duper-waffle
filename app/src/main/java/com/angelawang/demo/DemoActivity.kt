@@ -2,18 +2,20 @@ package com.angelawang.demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.angelawang.demo.data.CurrencyInfoRepository
+import com.angelawang.demo.data.model.CurrencyInfo
 import com.angelawang.demo.databinding.ActivityDemoBinding
 import com.angelawang.demo.ui.CurrencyInfoViewModel
 
 class DemoActivity : AppCompatActivity() {
 
     private var binding: ActivityDemoBinding? = null
-    private val currencyInfoViewModel: CurrencyInfoViewModel by lazy {
-        ViewModelProvider(this).get(CurrencyInfoViewModel::class.java)
-    }
+    private val currencyInfoViewModel: CurrencyInfoViewModel by viewModels()
+
     private var currentSortType = CurrencyInfoRepository.SortType.NONE
     private var toastMessage: Toast? = null
 
@@ -26,13 +28,37 @@ class DemoActivity : AppCompatActivity() {
         setContentView(activityBinding.root)
 
         activityBinding.loadButton.setOnClickListener {
-            activityBinding.loadButton.isEnabled = false
-            activityBinding.sortButton.isEnabled = true
+            activityBinding.apply {
+                loadButton.isEnabled = false
+                sortButton.isEnabled = true
+                loadingProgressBar.visibility = View.VISIBLE
+            }
             currencyInfoViewModel.setSortType(CurrencyInfoRepository.SortType.DEFAULT)
         }
+
         activityBinding.sortButton.setOnClickListener {
             currencyInfoViewModel.setSortType(CurrencyInfoRepository.SortType.next(currentSortType))
         }
+
+        // Set button state according to list is empty or not
+        currencyInfoViewModel.getList().observe(this, object: Observer<List<CurrencyInfo>> {
+            override fun onChanged(list: List<CurrencyInfo>?) {
+                if (list == null || list.isEmpty()) {
+                    activityBinding.apply {
+                        loadButton.isEnabled = true
+                        sortButton.isEnabled = false
+                    }
+                } else {
+                    activityBinding.apply {
+                        loadButton.isEnabled = false
+                        sortButton.isEnabled = true
+                        loadingProgressBar.visibility = View.GONE
+                    }
+                    // No need to observe list anymore after it's loaded
+                    currencyInfoViewModel.getList().removeObserver(this)
+                }
+            }
+        })
 
         // Update current sort type and sort button text when it changed
         currencyInfoViewModel.getSortType().observe(this, { sortType ->
