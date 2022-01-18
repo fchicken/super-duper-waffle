@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.angelawang.demo.data.CurrencyInfoRepository
 import com.angelawang.demo.data.model.CurrencyInfo
 import com.angelawang.demo.databinding.ActivityDemoBinding
+import com.angelawang.demo.extensions.setOnClickListener
 import com.angelawang.demo.ui.CurrencyInfoViewModel
 
 class DemoActivity : AppCompatActivity() {
@@ -36,7 +37,7 @@ class DemoActivity : AppCompatActivity() {
             currencyInfoViewModel.setSortType(CurrencyInfoRepository.SortType.DEFAULT)
         }
 
-        activityBinding.sortButton.setOnClickListener {
+        activityBinding.sortButton.setOnClickListener(300) {
             currencyInfoViewModel.setSortType(CurrencyInfoRepository.SortType.next(currentSortType))
         }
 
